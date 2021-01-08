@@ -1,12 +1,10 @@
 #----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
-
 import json
 import dateutil.parser
 import babel
 from flask import Flask, render_template, request, Response, flash, redirect, url_for
-
 import logging
 from logging import Formatter, FileHandler
 from flask_wtf import Form
@@ -92,8 +90,7 @@ def search_venues():
 
 @app.route('/venues/<int:venue_id>')
 def show_venue(venue_id):
-  # shows the venue page with the given venue_id
-  data = {}
+    data = {}
 
     try:
         requested_venue = Venue.query.get(venue_id)
@@ -159,7 +156,6 @@ def show_venue(venue_id):
         db.session.close()
 
     return render_template("pages/show_venue.html", venue=data)
-
 
 #  Create Venue
 #  ----------------------------------------------------------------
